@@ -25,6 +25,24 @@ The application uses a trained **K-Nearest Neighbors (KNN)** Machine Learning mo
 
 ---
 
+# 📸 Application Screenshots
+
+## 🏠 Home Page
+
+![Home Page](screenshots/home.png)
+
+---
+
+## 🟢 Low Risk Prediction
+
+![Low Risk](screenshots/low-risk.png)
+
+---
+
+## 🔴 High Risk Prediction
+
+![High Risk](screenshots/high-risk.png)
+
 ## 🛠️ Tech Stack
 
 ### Frontend
