@@ -1,23 +1,26 @@
-import { ArrowRight, HeartPulse } from "lucide-react";
+import { ArrowRight, HeartPulse, Activity } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function Hero() {
   const navigate = useNavigate();
   return (
-    <section className="bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[85vh] flex items-center pt-10 pb-24 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-screen flex items-center pt-16 pb-16 overflow-hidden">
+        <div className="absolute -top-40 -left-32 w-[420px] h-[420px] bg-blue-300/30 rounded-full blur-3xl"></div>
+
+        <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-cyan-300/30 rounded-full blur-3xl"></div>
       <div className="max-w-[1400px] mx-auto px-8 lg:px-16 grid lg:grid-cols-2 gap-14 items-center">
 
         {/* Left Side */}
         <div className="max-w-3xl">
 
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 px-5 py-3 rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 mb-8 border border-blue-200">
+          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-xl text-blue-700 px-6 py-3 rounded-full shadow-xl border border-blue-100 hover:scale-105 transition-all duration-300 mb-8">
             <HeartPulse size={18} />
             <span className="font-medium">
               AI Powered Heart Disease Prediction
             </span>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight text-slate-900">
+          <h1 className="text-5xl lg:text-7xl font-black leading-tight text-slate-900 tracking-tight">
 
             AI-Powered
 
@@ -44,7 +47,7 @@ function Hero() {
 
             <button
               onClick={() => navigate("/predict")}
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-9 py-4 rounded-2xl font-semibold flex items-center gap-2 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+              className="bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 text-white px-9 py-4 rounded-2xl font-semibold flex items-center gap-2 shadow-xl hover:shadow-blue-300/50 hover:scale-105 transition-all duration-300"
             >
               Start Prediction
               <ArrowRight size={18} />
@@ -107,9 +110,9 @@ function Hero() {
 
 {/* Right Side */}
 
-<div className="flex justify-center">
+<div className="flex justify-center relative">
 
-    <div className="w-full max-w-lg bg-gradient-to-br from-white to-slate-50 rounded-[32px] shadow-2xl border border-slate-200 p-8 hover:-translate-y-2 hover:rotate-1 transition-all duration-500">
+    <div className="w-full max-w-lg bg-white/80 backdrop-blur-xl rounded-[36px] shadow-2xl border border-white/40 p-8 hover:-translate-y-3 hover:rotate-1 transition-all duration-500">
 
         <div className="flex items-center justify-between">
 
@@ -118,7 +121,10 @@ function Hero() {
                 <div className="flex items-center gap-3">
 
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-red-500 to-pink-500 flex items-center justify-center text-white text-xl shadow-md">
-                      ❤️
+                      <Activity
+                        size={30}
+                        className="text-white"
+                        />
                   </div>
 
                   <div>
@@ -163,7 +169,7 @@ function Hero() {
 
                 <div className="w-full bg-slate-200 rounded-full h-3">
 
-                    <div className="w-[92%] bg-blue-600 h-3 rounded-full"></div>
+                    <div className="w-[92%] bg-gradient-to-r from-blue-500 to-cyan-400 h-3 rounded-full shadow-lg"></div>
 
                 </div>
 
@@ -187,7 +193,7 @@ function Hero() {
 
                 <div className="w-full bg-slate-200 rounded-full h-3">
 
-                    <div className="w-[96%] bg-green-500 h-3 rounded-full"></div>
+                    <div className="w-[96%] bg-gradient-to-r from-green-500 to-emerald-400 h-3 rounded-full shadow-lg"></div>
 
                 </div>
 

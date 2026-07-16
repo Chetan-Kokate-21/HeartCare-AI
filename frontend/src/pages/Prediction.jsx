@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Stethoscope, Search } from "lucide-react";
 
 
@@ -99,7 +100,6 @@ const getRecommendations = () => {
 };
 
 const calculateHealthScore = () => {
-  console.log(formData);
 
   let score = 100;
 
@@ -121,12 +121,19 @@ const calculateHealthScore = () => {
 
   if (formData.stSlope === "Down") score -= 5;
 
-  if (score < 0) score = 0;
+  // If AI predicts HIGH RISK, cap the score
+  if (prediction === "high") {
+    score = Math.min(score, 55);
+  }
 
-  console.log("Final Score:", score);
+  // If AI predicts LOW RISK, ensure a healthy score
+  if (prediction === "low") {
+    score = Math.max(score, 80);
+  }
+
+  score = Math.max(0, Math.min(100, score));
+
   return score;
-
-
 };
 
   // Send Data To Flask
@@ -184,9 +191,18 @@ const calculateHealthScore = () => {
 
   };
 
-  return (
+return (
 
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 py-20">
+<motion.div
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -30 }}
+    transition={{
+        duration: 0.45,
+        ease: "easeOut",
+    }}
+    className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 py-20"
+>
 
       <div className="max-w-6xl mx-auto px-6">
 
@@ -701,7 +717,7 @@ const calculateHealthScore = () => {
 
       </div>
 
-    </div>
+    </motion.div>
 
   );
 
