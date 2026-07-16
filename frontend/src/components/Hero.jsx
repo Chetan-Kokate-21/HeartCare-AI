@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Hero() {
   const navigate = useNavigate();
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-screen flex items-center pt-16 pb-16 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-[85vh] flex items-center pt-28 pb-24 overflow-hidden">
         <div className="absolute -top-40 -left-32 w-[420px] h-[420px] bg-blue-300/30 rounded-full blur-3xl"></div>
 
         <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-cyan-300/30 rounded-full blur-3xl"></div>
